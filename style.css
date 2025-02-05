@@ -1,0 +1,109 @@
+:root{
+    --gray:#3D3D3D;
+    --green : #578E7E;
+    --white: #F5ECD5;
+    --red : #DE3163;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+body{
+    user-select: none;
+    background-color: var(--gray);
+    color: var(--white);
+    font-family: "Consolas", "Courier New", "Menlo", "Monaco", "DejaVu Sans Mono", monospace;
+    margin: 42px 24px 24px 24px;
+}
+
+h1{
+    color: var(--green);
+}
+
+p{
+    font-size: 28px;
+    margin-top: 42px;
+    max-width: 800px;
+    min-height: 200px;
+}
+
+letter {
+    opacity: .3;
+    border-bottom: 3px solid transparent;
+    
+    &.active{
+        opacity: .7;   
+    }
+    &.correct{
+        opacity: 1;
+    }
+    &.incorrect{
+        opacity: 1;
+        color: var(--red);
+    }
+}
+space.active{
+    border-bottom: 3px solid var(--green);
+    position: relative;
+}
+
+.active{
+    animation-duration: .9s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+}
+
+@keyframes slidein {
+    from {
+        border-color: transparent;
+    }
+    to {
+        border-color: var(--green);
+    }
+  }
+
+
+header {
+    @media (min-width : 800px) {
+        min-width: 800px;
+    }   
+}
+button {
+    border: none;
+    border-radius: 16px;
+    background-color: transparent;
+    opacity: .3;
+    transition: transform .2s ease-in-out;
+    &:hover{
+        transform: rotate(45deg);
+        opacity: 1;
+    }
+}
+
+section{
+    display: flex;
+    width: 40%;
+}
+h2{
+    font-size: 28px;
+    flex: 1;
+    text-align: center;
+    color: var(--green);
+}
+.enter{
+    position: absolute;
+    top: 0;
+    left: 100%;
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    border-bottom: 3px solid transparent;
+    animation-duration: .9s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+}
