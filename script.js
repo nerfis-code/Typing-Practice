@@ -74,7 +74,7 @@ function on_focus(){}
 function on_blur(){}
 
 function on_press(event){
-    
+    $reload.blur()
     if (interval == null){
         interval = setInterval(()=>currTime++,1000)
     }
