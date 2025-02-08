@@ -65,7 +65,7 @@ init_game()
 
 function end_game(){
     clearInterval(interval)
-    $wpm.textContent = (24 / (currTime / 60)).toFixed(2)  + " wpm"
+    $wpm.textContent = (16 / (currTime / 60)).toFixed(2)  + " wpm"
     let corrects = [...document.querySelectorAll("span.letter.correct")].length;
     let incorrects = [...document.querySelectorAll("span.letter.incorrect")].length;
     $percent.textContent = (100 - ((incorrects/corrects)*100)).toFixed(2) + " %"
