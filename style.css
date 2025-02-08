@@ -31,7 +31,7 @@ p{
     min-height: 200px;
 }
 
-letter {
+.letter {
     opacity: .3;
     border-bottom: 3px solid transparent;
     
@@ -46,7 +46,7 @@ letter {
         color: var(--red);
     }
 }
-space.active{
+.space.active{
     border-bottom: 3px solid var(--green);
     position: relative;
 }
@@ -96,10 +96,7 @@ h2{
 }
 .enter{
     position: absolute;
-    top: 0;
-    left: 100%;
     white-space: nowrap;
-
     cursor: pointer;
 
     border-bottom: 3px solid transparent;

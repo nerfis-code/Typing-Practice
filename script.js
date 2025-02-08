@@ -36,24 +36,29 @@ function init_game(){
     clearInterval(interval)
     failedTheFirstAttempt = false
 
-    const texto = tex.toSorted(()=> {return Math.random() - .5}).slice(0,24)
-    for(const word of texto){
-        let x_word = document.createElement("word")
+    const texto = tex.toSorted(()=> {return Math.random() - .5}).slice(0,16)
+    texto.map((word,index) =>{
+        const $word = document.createElement("span")
+        $word.classList.add("word")
         word.split("").map((letter)=>{
-            let x_letter = document.createElement("letter")
-            x_letter.textContent = letter
-            x_word.appendChild(x_letter)
+            const $letter = document.createElement("span")
+            $letter.classList.add("letter")
+            $letter.textContent = letter
+            $word.append($letter)
         })
-        $paragraph.appendChild(x_word)
-    
-        let x_void = document.createElement("void")
-        let x_space = document.createElement("space")
-        x_space.textContent = " "
-        x_void.appendChild(x_space)
-        $paragraph.appendChild(x_void)
-    }
-    currWord = document.querySelector("word")
-    currLetter = document.querySelector("letter")
+        $paragraph.appendChild($word)
+
+        if (index !== texto.length-1){
+            const $void = document.createElement("span")
+            const $space = document.createElement("span")
+            $space.innerText = " "
+            $space.classList.add("space")
+            $void.appendChild($space)
+            $paragraph.appendChild($void)
+        }
+    })
+    currWord = document.querySelector("span.word")
+    currLetter = document.querySelector("span.letter")
     currLetter.classList.add("active")
 }
 init_game()
@@ -61,8 +66,8 @@ init_game()
 function end_game(){
     clearInterval(interval)
     $wpm.textContent = (24 / (currTime / 60)).toFixed(2)  + " wpm"
-    let corrects = [...document.querySelectorAll("letter.correct")].length;
-    let incorrects = [...document.querySelectorAll("letter.incorrect")].length;
+    let corrects = [...document.querySelectorAll("span.letter.correct")].length;
+    let incorrects = [...document.querySelectorAll("span.letter.incorrect")].length;
     $percent.textContent = (100 - ((incorrects/corrects)*100)).toFixed(2) + " %"
 }
 function on_focus(){}
